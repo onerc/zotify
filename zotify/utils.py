@@ -142,16 +142,16 @@ def set_audio_tags(filename, artists, genres, name, album_name, release_year, di
 
 def conv_artist_format(artists) -> str:
     """ Returns converted artist format """
-    return ', '.join(artists)
+    return '/'.join(artists)
 
 
 def set_music_thumbnail(filename, image_url) -> None:
     """ Downloads cover artwork """
     img = requests.get(image_url).content
-    tags = music_tag.load_file(filename)
-    tags[ARTWORK] = img
-    tags.save()
-
+    cover_dir = PurePath(filename).parent.joinpath("cover.png")
+    if not os.path.isfile(cover_dir):
+        with open(coverdir, "wb") as cover:
+            cover.write(img)
 
 def regex_input_for_urls(search_input) -> Tuple[str, str, str, str, str, str]:
     """ Since many kinds of search may be passed at the command line, process them all here. """
