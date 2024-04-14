@@ -84,6 +84,7 @@ Be aware you have to set boolean values in the commandline like this: `--downloa
 | PRINT_ERRORS                 | --print-errors                   | True     | Show errors
 | PRINT_DOWNLOADS              | --print-downloads                | False    | Print messages when a song is finished downloading
 | TEMP_DOWNLOAD_DIR            | --temp-download-dir              |          | Download tracks to a temporary directory first
+| EMBED_COVERS                 | --embed-covers                   | False    | Embed covers in the songs
 
 *very-high is limited to premium only  
 
