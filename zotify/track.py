@@ -12,7 +12,7 @@ from zotify.const import TRACKS, ALBUM, GENRES, NAME, ITEMS, DISC_NUMBER, TRACK_
     RELEASE_DATE, ID, TRACKS_URL, FOLLOWED_ARTISTS_URL, SAVED_TRACKS_URL, TRACK_STATS_URL, CODEC_MAP, EXT_MAP, DURATION_MS, \
     HREF, ARTISTS, WIDTH
 from zotify.termoutput import Printer, PrintChannel
-from zotify.utils import fix_filename, set_audio_tags, embed_music_thumbnail, save_music_thumbnail, create_download_directory, \
+from zotify.utils import fix_filename, set_audio_tags, set_music_thumbnail, create_download_directory, \
     get_directory_song_ids, add_to_directory_song_ids, get_previously_downloaded, add_to_archive, fmt_seconds
 from zotify.zotify import Zotify
 import traceback
@@ -262,11 +262,7 @@ def download_track(mode: str, track_id: str, extra_keys=None, disable_progressba
                     convert_audio_format(filename_temp)
                     try:
                         set_audio_tags(filename_temp, artists, genres, name, album_name, release_year, disc_number, track_number)
-                        if Zotify.CONFIG.get_embed_covers():
-                            embed_music_thumbnail(filename_temp, image_url)
-                        else:
-                            save_music_thumbnail(filename_temp, image_url)
-                            
+                        set_music_thumbnail(filename_temp, image_url)
                     except Exception:
                         Printer.print(PrintChannel.ERRORS, "Unable to write metadata, ensure ffmpeg is installed and added to your PATH.")
 
