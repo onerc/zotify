@@ -146,7 +146,7 @@ def conv_artist_format(artists) -> str:
 
 
 def set_music_thumbnail(filename, image_url) -> None:
-    """ Downloads and embeds cover artwork """
+    """ Downloads cover artwork """
     img = requests.get(image_url).content
     if Zotify.CONFIG.get_embed_covers():
         tags = music_tag.load_file(filename)
