@@ -145,16 +145,22 @@ def conv_artist_format(artists) -> str:
     return '/'.join(artists)
 
 
-def set_music_thumbnail(filename, image_url) -> None:
-    """ Downloads cover artwork """
+def embed_music_thumbnail(filename, image_url) -> None:
+    """ Downloads and embeds cover artwork """
+    img = requests.get(image_url).content
+    tags = music_tag.load_file(filename)
+    tags[ARTWORK] = img
+    tags.save()
+
+
+def save_music_thumbnail(filename, image_url) -> None:
+    """ Downloads and saves cover artwork """
     img = requests.get(image_url).content
     cover_file = PurePath(filename).parent.joinpath("cover.png")
     if not os.path.isfile(cover_file):
         with open(cover_file, "wb") as cover:
             cover.write(img)
-    #tags = music_tag.load_file(filename)
-    #tags[ARTWORK] = img
-    #tags.save()
+
 
 def regex_input_for_urls(search_input) -> Tuple[str, str, str, str, str, str]:
     """ Since many kinds of search may be passed at the command line, process them all here. """
