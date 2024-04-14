@@ -264,7 +264,7 @@ def fix_filename(name):
     if platform.system() == WINDOWS_SYSTEM:
         return re.sub(r'[/\\:|<>"?*\0-\x1f]|^(AUX|COM[1-9]|CON|LPT[1-9]|NUL|PRN)(?![^.])|^\s|[\s.]$', "_", str(name), flags=re.IGNORECASE)
     elif platform.system() == LINUX_SYSTEM:
-        return re.sub(r'[/\0]', "_", str(name))
+        return re.sub(r'[/\0]', "-", str(name))
     else: # MacOS
         return re.sub(r'[/:\0]', "_", str(name))
 
