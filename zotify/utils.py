@@ -26,10 +26,10 @@ def create_download_directory(download_path: str) -> None:
     Path(download_path).mkdir(parents=True, exist_ok=True)
 
     # add hidden file with song ids
-    hidden_file_path = PurePath(download_path).joinpath('.song_ids')
-    if not Path(hidden_file_path).is_file():
-        with open(hidden_file_path, 'w', encoding='utf-8') as f:
-            pass
+    #hidden_file_path = PurePath(download_path).joinpath('.song_ids')
+    #if not Path(hidden_file_path).is_file():
+    #    with open(hidden_file_path, 'w', encoding='utf-8') as f:
+    #        pass
 
 
 def get_previously_downloaded() -> List[str]:
