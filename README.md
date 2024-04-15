@@ -6,6 +6,11 @@
   <img src="https://i.imgur.com/hGXQWSl.png" width="50%" alt="Zotify logo">
 </p>
 
+### Fork additions
+- Option to save covers separately
+- No unnecessary `.song_ids` file
+- Artists are joined properly
+
 ### Features
   - Downloads at up to 320kbps*
   - Downloads directly from the source**
