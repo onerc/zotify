@@ -11,6 +11,10 @@
   - No unnecessary `.song_ids` file
   - Artists are joined properly
 
+### Known quirks
+  - Formats other than `m4a` produce slightly different files every time they are downloaded. It shouldn't affect the playback though.
+  - You may very, very rarely see some album names with "cursed" letters. This looks like an error on Spotify's end because their API also returns those "cursed" names.
+
 ### Features
   - Downloads at up to 320kbps*
   - Downloads directly from the source**
