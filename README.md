@@ -13,7 +13,11 @@
 
 ### Known quirks
   - Formats other than `m4a` produce slightly different files every time they are downloaded. It shouldn't affect the playback though.
-  - You may very, very rarely see some album names with "cursed" letters. This looks like an error on Spotify's end because their API also returns those "cursed" names.
+  - You may very, very rarely see some album names with "cursed" letters. This looks like an error on Spotify's end because their API also returns those "cursed" names. Example:
+
+    ![20240418-140714](https://github.com/onerc/zotify/assets/94126150/2d533761-6205-4421-a6a8-c67a8561ffdd)
+    
+    (In this context, album name should have been the same with track name)
 
 ### Features
   - Downloads at up to 320kbps*
